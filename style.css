@@ -1,0 +1,158 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.main {
+  width: 100%;
+  height: 100%;
+  background: rgb(1, 15, 28);
+  font-family: "Dancing Script", cursive;
+  position: absolute;
+  overflow: hidden;
+  padding: 10px;
+}
+
+#cake {
+  display: block;
+  position: relative;
+  margin: -23em auto 0 auto;
+}
+
+.candle {
+  background: #ffffff;
+  border-radius: 5px;
+  position: absolute;
+  top: 153px;
+  left: 50%;
+  margin-left: -2.4px;
+  margin-top: -8.33333333px;
+  width: 6px;
+  height: 45px;
+  transform: translateY(-400px);
+  backface-visibility: hidden;
+  animation: in 500ms 6s ease-out forwards;
+}
+
+.candle:after,
+.candle:before {
+  background: rgba(255, 0, 0, 0.4);
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2.22222222px;
+}
+
+.candle:after {
+  top: 25%;
+}
+
+.candle:before {
+  top: 45%;
+}
+
+.fire {
+  border-radius: 100%;
+  position: absolute;
+  top: -20px;
+  left: 40%;
+  margin-left: -2.6px;
+  width: 6.66666667px;
+  height: 20px;
+}
+
+.fire:nth-child(1) {
+  animation: fire 2s 6.5s infinite;
+}
+.fire:nth-child(2) {
+  animation: fire 1.5s 6.5s infinite;
+}
+.fire:nth-child(3) {
+  animation: fire 1s 6.5s infinite;
+}
+.fire:nth-child(4) {
+  animation: fire 0.5s 6.5s infinite;
+}
+.fire:nth-child(5) {
+  animation: fire 0.2s 6.5s infinite;
+}
+
+@keyframes fire {
+  0%,
+  100% {
+    background: rgba(254, 248, 97, 0.5);
+    box-shadow: 0 0 40px 10px rgba(248, 233, 209, 0.2);
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    background: rgba(255, 50, 0, 0.1);
+    box-shadow: 0 0 40px 20px rgba(248, 233, 209, 0.2);
+    transform: translateY(-20px) scale(0);
+  }
+}
+
+@keyframes in {
+  to {
+    transform: translateY(0);
+  }
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  gap: 25px;
+  max-width: 700px;
+  min-height: 100px;
+  padding: 10px;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-200px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+#birthday-text {
+  color: #ffffff;
+  text-align: center;
+  font-weight: 900;
+  font-size: clamp(1.6rem, 2vw + 0.5rem, 2.2rem);
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1s ease-out;
+  letter-spacing: 3px;
+}
+
+#birthday-text.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#messages {
+  text-align: center;
+  max-width: 700px;
+}
+
+.message {
+  color: #fff;
+  font-size: clamp(1.3rem, 2vw + 0.5rem, 2rem);
+  font-weight: 500;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  display: block;
+  animation: blink 1s step-end infinite alternate;
+  letter-spacing: clamp(0.5px, 0.2vw, 3px);
+  line-height: 1.6;
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
